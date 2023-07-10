@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+  <!-- style -->
+  <style>
+
+.calculator {
+    width: 200px;
+    background-color: #f5f5f5;
+    border: 1px solid #ffffff;
+    padding: 10px;
+  }
+  
+  .input {
+    margin-bottom: 10px;
+    /* background-color: aqua; */
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50%;
+
+  }
+
+  .buttons button.c{
+    background-color: rgb(255, 153, 45);
+  }
+   
+
+  .buttons button.slush{
+    background-color: rgb(255, 153, 45);
+  }
+
+  .buttons button.star{
+    background-color: rgb(255, 153, 45);
+  }
+
+  .buttons button.miniz{
+    background-color: rgb(255, 153, 45);
+  }
+
+  .buttons button.dad{
+    background-color: rgb(255, 153, 45);
+  }
+
+
+.buttons button.eqal{
+  background-color: rgb(255, 153, 45);
+  /* width: 100%; */
+}
+ 
+.buttons button.plass{
+  background-color: rgb(255, 153, 45);
+}
+
+  </style>
+
+
+</head>
+<body>
+  <div class="calculator">
+    <div class="input">
+      <input type="text" id="result" readonly>
+    </div>
+    <div class="buttons">
+      <button onclick="appendInput('+')" class="plass">+</button>
+      <button onclick="appendInput(7)">7 </button>
+      <button onclick="appendInput(8)">8</button>
+      <button onclick="appendInput(9)">9</button>
+      <button onclick="appendInput('/')" class="slush">/</button>
+      <button onclick="appendInput(4)">4</button>
+      <button onclick="appendInput(5)">5</button>
+      <button onclick="appendInput(6)">6</button>
+      <button onclick="appendInput('*')" class="star">*</button>
+      <button onclick="appendInput(1)">1</button>
+      <button onclick="appendInput(2)">2</button>
+      <button onclick="appendInput(3)">3</button>
+      <button onclick="appendInput('-')" class="miniz">-</button>
+      <button onclick="appendInput('.')" class="dad">.</button>
+      <button onclick="appendInput(0)">0</button>
+      <button onclick="calculateResult()" class="eqal">=</button>
+      <button onclick="clearInput()" class="c">C</button>
+    </div>
+  </div>
+
+  <script>
+    let input = '';
+
+function clearInput() {
+  input = '';
+  document.getElementById('result').value = '';
+}
+
+function appendInput(value) {
+  input += value;
+  document.getElementById('result').value = input;
+}
+
+function calculateResult() {
+  try {
+    const result = eval(input);
+    input = result.toString();
+    document.getElementById('result').value = input;
+  } catch (error) {
+    input = '';
+    document.getElementById('result').value = 'Error';
+  }
+}
+  </script>
+</body>
+</html>
